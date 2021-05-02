@@ -45,14 +45,21 @@ main()
         perc = bperc();
         if(perc < 20) {
             if (perc < 5)
-                sprintf(buf, "notify-send -u critical 'Battery level CRITICAL: %d%%'\n", perc);
+                sprintf(buf, "-u critical 'Battery level CRITICAL: %d%%'\n", perc);
             else if (perc < 10)
-                sprintf(buf, "notify-send -u critical 'Battery level urgent: %d%%'\n", perc);
+                sprintf(buf, "-u critical 'Battery level urgent: %d%%'\n", perc);
             else
-                sprintf(buf, "notify-send 'Battery level low: %d%%'\n", perc);
-            system(buf);
+                sprintf(buf, "'Battery level low: %d%%'\n", perc);
+            char *argv[] =
+            {
+                "notify-send",
+                "notify-send",
+                buf,
+                NULL
+            };
+            execv("/usr/bin/env", argv);
         }
-        sleep(300);
+        sleep(600);
     }
     return 0;
 }
