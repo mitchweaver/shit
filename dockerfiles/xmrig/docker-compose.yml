@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  miner:
+    build:
+      context: .
+    network_mode: service:tor
+    restart: unless-stopped
+    depends_on:
+      - tor
+    environment:
+      - WALLET=--------------YOUR_WALLET_HERE-----------------------
+      - POOL=gulf.moneroocean.stream
+      - POOL_PORT=20128
+      - PROXY_PORT=9150
+      # - BACKEND="--no-cpu --opencl" # for AMD GPU
+      # - BACKEND="--no-cpu --cuda"   # for NVIDIA GPU
+  tor:
+    image: peterdavehello/tor-socks-proxy:latest
+    restart: unless-stopped

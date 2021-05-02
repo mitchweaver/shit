@@ -1,0 +1,10 @@
+2021-01-22 20:33:08 [main] INFO  net.runelite.client.RuneLite - RuneLite 1.6.37 (launcher version 2.1.5) starting up, args: none
+2021-01-22 20:33:11 [Preloader] INFO  net.runelite.client.rs.ClientLoader - Using cached vanilla client
+2021-01-22 20:33:11 [Preloader] WARN  net.runelite.client.rs.ClientLoader - Cached patch hash mismatches, regenerating patch
+2021-01-22 20:33:13 [Preloader] INFO  net.runelite.client.rs.ClientLoader - client-patch 975251127.20
+2021-01-22 20:33:13 [main] INFO  n.r.client.account.SessionManager - No session file exists
+2021-01-22 20:33:13 [main] INFO  n.r.c.plugins.kourendlibrary.Library - Library is now reset
+2021-01-22 20:33:14 [main] INFO  n.r.client.discord.DiscordService - Initializing Discord RPC service.
+2021-01-22 20:33:16 [main] INFO  net.runelite.client.RuneLite - Client initialization took 7474ms. Uptime: 8390ms
+2021-01-22 20:33:16 [AWT-EventQueue-0] INFO  net.runelite.client.ui.ClientUI - Showing frame net.runelite.client.ui.ContainableFrame[frame0,307,154,813x538,layout=java.awt.BorderLayout,title=RuneLite,resizable,normal,defaultCloseOperation=DO_NOTHING_ON_CLOSE,rootPane=javax.swing.JRootPane[,0,0,809x534,layout=org.pushingpixels.substance.internal.ui.SubstanceRootPaneUI$SubstanceRootLayout,alignmentX=0.0,alignmentY=0.0,border=org.pushingpixels.substance.internal.utils.border.SubstancePaneBorder@354ff006,flags=16777673,maximumSize=,minimumSize=,preferredSize=],rootPaneCheckingEnabled=true]
+2021-01-22 20:33:48 [Client] INFO  n.r.client.config.ConfigManager - creating new profile [-13, -88, 42, -40, 43, -69] for user welove2fart

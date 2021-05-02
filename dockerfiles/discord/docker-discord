@@ -1,0 +1,25 @@
+#!/bin/sh
+
+case $1 in
+    -h)
+        >&2 echo "Usage: ${0##*/} [path to profile]"
+        exit
+        ;;
+    *)
+        profile=$*
+esac
+
+exec sudo docker run --rm -it -d \
+    --name discord \
+    --privileged \
+    --shm-size="${SHM_SIZE:-1024m}" \
+    -e DISPLAY=unix"${DISPLAY:-:0}" \
+    -e PULSE_SERVER="tcp:localhost:64713" \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -v /etc/localtime:/etc/localtime:ro \
+    -v /var/lib/dbus:/var/lib/dbus \
+    -v /dev/snd:/dev/snd \
+    -v "/run/user/$(id -u)/pulse:/run/user/$(id -u)/pulse" \
+    -v "${HOME}/.pulse:/home/discord/.pulse" \
+    -v "${profile:-${XDG_CONFIG_HOME:-${HOME}/.config}/discord}:/home/discord/.config/discord/" \
+    discord:latest

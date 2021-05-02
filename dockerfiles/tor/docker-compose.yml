@@ -1,0 +1,7 @@
+tor:
+  image: rdsubhas/tor-privoxy-alpine
+  ports:
+    - 9050:9050
+    - 9051:9051
+    - 8118:8118
+  restart: always

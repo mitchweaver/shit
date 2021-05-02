@@ -1,6 +1,0 @@
-#if running interactively, (or as a command via a pipe)
-if [ -t 0 ] ; then
-    echo 'we are interractive'
-else
-    echo 'we are run as a command / pipe!'
-fi

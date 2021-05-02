@@ -1,0 +1,8 @@
+2021-01-14 22:09:18 [main] INFO  net.runelite.client.RuneLite - RuneLite 1.6.36.2 (launcher version 2.1.5) starting up, args: none
+2021-01-14 22:09:23 [Preloader] INFO  net.runelite.client.rs.ClientLoader - client-patch 955819525.11
+2021-01-14 22:09:23 [main] INFO  n.r.client.account.SessionManager - No session file exists
+2021-01-14 22:09:24 [main] INFO  n.r.c.plugins.kourendlibrary.Library - Library is now reset
+2021-01-14 22:09:25 [main] INFO  n.r.client.discord.DiscordService - Initializing Discord RPC service.
+2021-01-14 22:09:26 [main] INFO  net.runelite.client.RuneLite - Client initialization took 7721ms. Uptime: 8534ms
+2021-01-14 22:09:26 [AWT-EventQueue-0] INFO  net.runelite.client.ui.ClientUI - Showing frame net.runelite.client.ui.ContainableFrame[frame0,556,333,813x538,layout=java.awt.BorderLayout,title=RuneLite,resizable,normal,defaultCloseOperation=DO_NOTHING_ON_CLOSE,rootPane=javax.swing.JRootPane[,0,0,809x534,layout=org.pushingpixels.substance.internal.ui.SubstanceRootPaneUI$SubstanceRootLayout,alignmentX=0.0,alignmentY=0.0,border=org.pushingpixels.substance.internal.utils.border.SubstancePaneBorder@4ff971b8,flags=16777673,maximumSize=,minimumSize=,preferredSize=],rootPaneCheckingEnabled=true]
+2021-01-14 22:10:03 [Client] INFO  n.r.client.config.ConfigManager - creating new profile [-42, -16, 114, 11, -120, 78] for user mitchspure@rs.com

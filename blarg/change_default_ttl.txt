@@ -1,4 +1,0 @@
-# change default TTL:
---------------------------------------------
-Linux: echo 65 | sudo tee /proc/sys/net/ipv4/ip_default_ttl
-OpenBSD: doas doas sysctl net.inet.ip.ttl=65

@@ -33,6 +33,11 @@ bperc()
 int
 main()
 {
+    #ifndef __OpenBSD__
+        printf("%s", "Not running on OpenBSD, exiting...");
+        exit(1);
+    #endif
+    
     char buf[512];
     int perc;
 
