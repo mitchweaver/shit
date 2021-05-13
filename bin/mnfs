@@ -1,0 +1,16 @@
+#!/bin/sh
+# mount muh nfs!
+
+mount=$(\
+grep nfs /etc/fstab | \
+    head -n 1 | \
+    sed -E -e 's/#+//' -e 's/ nfs.*//'
+)
+
+if [ "$mount" ] ; then
+    case $(uname) in
+        OpenBSD)
+            d=doas
+    esac
+    ${d:-sudo} mount $mount
+fi
