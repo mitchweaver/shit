@@ -12,5 +12,11 @@ if [ "$mount" ] ; then
         OpenBSD)
             d=doas
     esac
-    ${d:-sudo} mount $mount
+    case ${1#-} in
+        u)
+            ${d:-sudo} umount "${mount##* }"
+            ;;
+        *)
+            ${d:-sudo} mount "$mount"
+    esac
 fi
