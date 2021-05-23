@@ -1,4 +1,11 @@
 #!/bin/sh
 
 git clone https://github.com/xero/figlet-fonts.git /tmp/figlet-fonts
-doas mv -f /tmp/figlet-fonts/* /usr/local/share/figlet/
+
+case $(uname) in
+    OpenBSD)
+        doas mv -vf /tmp/figlet-fonts/* /usr/local/share/figlet/
+        ;;
+    Linux)
+        sudo mv -vf /tmp/figlet-fonts/* /usr/share/figlet/
+esac
