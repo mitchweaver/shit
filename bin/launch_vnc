@@ -16,8 +16,10 @@ case $(uname) in
 esac
 
 if ! command -v Xvfb >/dev/null || ! command -v x11vnc >/dev/null ; then
-    # ubuntu / debian
-    if command -v apt >/dev/null ; then
+
+    if command -v pacman >/dev/null ; then
+        $sudo pacman -Sy x11vnc xorg-xserver-xvfb
+    elif command -v apt >/dev/null ; then
         $sudo apt update
         $sudo apt install -y \
             tzdata ca-certificates dbus dbus-x11 \
