@@ -21,26 +21,19 @@ if ! command -v Xvfb >/dev/null || ! command -v x11vnc >/dev/null ; then
         $sudo pacman -Sy \
             x11vnc \
             xorg-xserver-xvfb \
-            openbox \
-            xterm
+            xfce4-desktop
     elif command -v apt >/dev/null ; then
         $sudo apt update
         $sudo apt install -y \
             tzdata ca-certificates dbus dbus-x11 \
             desktop-file-utils x11-xserver-utils \
-            x11vnc xterm
-        if ! pgrep X >/dev/null ; then
-            $sudo apt install -y xvfb openbox python-minimal
-        fi
-        $sudo apt autoremove -y
-        $sudo apt clean
-        $sudo rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/*
-    # alpine linux
+            x11vnc xfce4-desktop
+        $sudo apt install -y xvfb openbox python-minimal
     elif command -v apk >/dev/null ; then
         $sudo apk update
-        $sudo apk add x11vnc xvfb openbox xorg-server \
+        $sudo apk add x11vnc xvfb xorg-server \
             xf86-input-mouse xf86-input-keyboard xset \
-            xterm python2
+            xterm python2 xfce4-desktop
     fi
 fi
 
@@ -48,12 +41,26 @@ if ! pgrep X >/dev/null ; then
     Xvfb -screen 0 1024x768x24 -ac &
     sleep 5
     echo 'Sleeping 5 seconds for Xvfb to settle.'
-    xterm &
-    openbox-session &
+    if command -v xfce-session ; then
+        xfce-session &
+    else
+        xfce4-session &
+    fi
 fi
 
 xset m 0 0
 
-exec x11vnc -loop -xkb -nopw -wait 5 -noxrecord -noxdamage \
-    -permitfiletransfer -tightfilexfer -noxfixes \
-    -forever -shared -rfbport 5900 -display :0
+exec x11vnc \
+    -loop \
+    -xkb \
+    -nopw \
+    -wait 5 \
+    -noxrecord \
+    -noxdamage \
+    -permitfiletransfer \
+    -tightfilexfer \
+    -noxfixes \
+    -forever \
+    -shared \
+    -rfbport 5900 \
+    -display :0
