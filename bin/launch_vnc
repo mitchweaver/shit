@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -ex
 #
 # http://github.com/mitchweaver
 #
@@ -18,7 +18,11 @@ esac
 if ! command -v Xvfb >/dev/null || ! command -v x11vnc >/dev/null ; then
 
     if command -v pacman >/dev/null ; then
-        $sudo pacman -Sy x11vnc xorg-xserver-xvfb
+        $sudo pacman -Sy \
+            x11vnc \
+            xorg-xserver-xvfb \
+            openbox \
+            xterm
     elif command -v apt >/dev/null ; then
         $sudo apt update
         $sudo apt install -y \
@@ -44,12 +48,12 @@ if ! pgrep X >/dev/null ; then
     Xvfb -screen 0 1024x768x24 -ac &
     sleep 5
     echo 'Sleeping 5 seconds for Xvfb to settle.'
-
+    xterm &
     openbox-session &
 fi
 
 xset m 0 0
 
-exec x11vnc -xkb -nopw -wait 5 -noxrecord -noxdamage \
+exec x11vnc -loop -xkb -nopw -wait 5 -noxrecord -noxdamage \
     -permitfiletransfer -tightfilexfer -noxfixes \
     -forever -shared -rfbport 5900 -display :0
