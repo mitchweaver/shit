@@ -50,7 +50,7 @@ fi
 
 xset m 0 0
 
-noup \
+nohup \
     x11vnc \
     -loop \
     -xkb \
