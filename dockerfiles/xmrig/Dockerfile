@@ -17,7 +17,7 @@ RUN apk --no-cache add \
     git
 
 RUN apk --no-cache add \
-    --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing \
+    --repository http://dl-cdn.alpinelinux.org/alpine/edge/community \
     hwloc-dev
 
 RUN git clone --single-branch --depth 1 https://github.com/MoneroOcean/xmrig .
