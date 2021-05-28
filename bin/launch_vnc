@@ -50,7 +50,8 @@ fi
 
 xset m 0 0
 
-exec x11vnc \
+noup \
+    x11vnc \
     -loop \
     -xkb \
     -nopw \
@@ -63,4 +64,7 @@ exec x11vnc \
     -forever \
     -shared \
     -rfbport 5900 \
-    -display :0
+    -display :0 &
+
+echo
+echo "forked!"
