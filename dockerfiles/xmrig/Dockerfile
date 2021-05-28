@@ -29,6 +29,9 @@ RUN mkdir build && cmake -DCMAKE_BUILD_TYPE=Release . && make -j$(nproc)
 
 RUN apk del gcc binutils musl-dev g++ make cmake git
 
+# need for best hash rates
+RUN modprobe msr
+
 RUN adduser -S -D -H -h /xmrig miner
 
 USER miner
